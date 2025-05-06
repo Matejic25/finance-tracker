@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { useDark, useToggle } from '@vueuse/core';
 
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 const isOpen = ref(false);
 
 function toggleMenu() {
@@ -12,6 +15,7 @@ function toggleMenu() {
     <div class="flex items-center absolute right-4 z-10">
         <button @click="toggleMenu">
             <svg
+                v-if="isDark"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -25,17 +29,32 @@ function toggleMenu() {
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                 />
             </svg>
+            <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="black"
+                class="size-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+            </svg>
         </button>
         <div
             v-show="isOpen"
-            class="flex flex-col dark:bg-gray-800 absolute top-11 -right-4 p-4 w-60 h-max"
+            class="flex flex-col dark:bg-gray-800 bg-gray-200 absolute top-11 -right-4 p-4 w-60 h-max"
         >
             <h1 class="text-xl font-bold text-center mb-2 italic">
                 <RouterLink :to="{ name: 'dashboard' }"
                     >Finance Tracker</RouterLink
                 >
             </h1>
-            <hr />
+            <hr class="border dark:border-gray-100 border-gray-800" />
             <section class="mt-6 px-2">
                 <h3 class="text-md font-bold underline">Pages</h3>
                 <nav class="flex flex-col py-2">
@@ -47,6 +66,43 @@ function toggleMenu() {
                     >
                 </nav>
             </section>
+            <button
+                @click="toggleDark()"
+                class="dark:bg-gray-700 dark:border-gray-600 border border-gray-800 bg-gray-300 w-full px-2 py-1 flex justify-center"
+            >
+                <span v-if="isDark"
+                    ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="yellow"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="yellow"
+                        class="size-5"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                        />
+                    </svg>
+                </span>
+                <span v-else
+                    ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="gray-800"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="none"
+                        class="size-5"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+                        />
+                    </svg>
+                </span>
+            </button>
         </div>
     </div>
 </template>

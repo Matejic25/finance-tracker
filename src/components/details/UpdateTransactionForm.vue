@@ -61,10 +61,12 @@ watch(
 
 <template>
     <form
-        class="flex flex-col w-full md:w-2/6 h-full mx-auto bg-gray-800 px-4 p-6 mt-8 md:mt-0 mb-16 sm:mb-0"
+        class="flex flex-col w-full md:w-2/6 h-full mx-auto dark:bg-gray-800 bg-gray-200 px-4 p-6 mt-8 md:mt-0 mb-16 sm:mb-0"
     >
         <div class="flex flex-col">
-            <label for="title" class="text-gray-300 mb-1 mt-3">Title</label>
+            <label for="title" class="dark:text-gray-300 mb-1 mt-3"
+                >Title</label
+            >
             <input
                 v-model="updateForm.title"
                 type="text"
@@ -73,7 +75,9 @@ watch(
             />
             <p v-if="errors.title">{{ errors.title }}</p>
 
-            <label for="amount" class="text-gray-300 mb-1 mt-3">Amount</label>
+            <label for="amount" class="dark:text-gray-300 mb-1 mt-3"
+                >Amount</label
+            >
             <input
                 v-model="updateForm.amount"
                 type="number"
@@ -82,7 +86,7 @@ watch(
             />
             <p v-if="errors.amount">{{ errors.amount }}</p>
 
-            <label for="type" class="text-gray-300 mb-1 mt-3">Type</label>
+            <label for="type" class="dark:text-gray-300 mb-1 mt-3">Type</label>
             <select v-model="updateForm.type" id="type" class="text-black">
                 <option disabled value="">Select Type</option>
                 <option>Income</option>
@@ -90,13 +94,13 @@ watch(
             </select>
             <p v-if="errors.type">{{ errors.type }}</p>
 
-            <label for="category" class="text-gray-300 mb-1 mt-3"
+            <label for="category" class="dark:text-gray-300 mb-1 mt-3"
                 >Category (Select Type First)</label
             >
             <select
                 v-model="updateForm.category"
                 id="category"
-                class="text-black"
+                class="dark:text-black"
                 :disabled="!availableCategories.length"
             >
                 <option disabled value="">Select Category</option>
@@ -106,7 +110,7 @@ watch(
             </select>
             <p v-if="errors.category">{{ errors.category }}</p>
 
-            <label for="date" class="text-gray-300 mb-1 mt-3">Date</label>
+            <label for="date" class="dark:text-gray-300 mb-1 mt-3">Date</label>
             <input
                 v-model="updateForm.date"
                 type="date"
@@ -115,7 +119,9 @@ watch(
             />
             <p v-if="errors.date">{{ errors.date }}</p>
 
-            <label for="notes" class="text-gray-300 mb-1 mt-3">Notes</label>
+            <label for="notes" class="dark:text-gray-300 mb-1 mt-3"
+                >Notes</label
+            >
             <input
                 v-model="updateForm.notes"
                 type="text"
@@ -124,7 +130,7 @@ watch(
             />
             <button
                 @click.prevent="handleUpdate"
-                class="bg-amber-600 mt-8 p-2 font-bold"
+                class="dark:bg-amber-600 bg-amber-500 mt-8 p-2 font-bold"
             >
                 Update
             </button>

@@ -9,7 +9,7 @@ function emitOnClick() {
 <template>
     <button
         @click="emitOnClick"
-        class="text-2xl font-bold text-center w-full bg-gray-800 py-2"
+        class="text-2xl font-bold text-center w-full dark:bg-gray-800 bg-gray-200 py-2"
     >
         New Transaction
     </button>

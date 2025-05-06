@@ -48,10 +48,10 @@ function handleRemove(id) {
         <div class="flex w-full justify-evenly mb-4">
             <button
                 :class="[
-                    'bg-gray-700 px-4 py-1',
+                    'dark:bg-gray-700 bg-gray-300 px-4 py-1',
                     filter.value === appliedFilter
-                        ? 'bg-gray-700 px-4 py-1 border-2 border-amber-600'
-                        : 'bg-gray-700 px-4 py-1',
+                        ? 'dark:bg-gray-700 bg-gray-300 px-4 py-1 border-2 dark:border-amber-600 border-amber-500'
+                        : 'dark:bg-gray-700 bg-gray-300 px-4 py-1',
                 ]"
                 v-for="filter in filters"
                 @click="applyTypeFilter(filter.value)"
@@ -66,7 +66,7 @@ function handleRemove(id) {
             <li
                 v-for="transaction in filteredTransactions"
                 :key="transaction.id"
-                class="flex flex-col bg-gray-700 py-3 items-center my-2"
+                class="flex flex-col dark:bg-gray-700 bg-gray-300 py-3 items-center my-2"
             >
                 <h2 class="text-2xl font-bold mb-2">{{ transaction.title }}</h2>
                 <p class="text-xl">
@@ -79,12 +79,12 @@ function handleRemove(id) {
                 <p class="font-lg">{{ transaction.category }}</p>
                 <RouterLink
                     :to="'transactions/' + transaction.id"
-                    class="bg-gray-800 py-1 px-4 mt-4"
+                    class="dark:bg-gray-800 bg-gray-200 py-1 px-4 mt-4"
                     >Details</RouterLink
                 >
                 <button
                     @click="handleRemove(transaction.id)"
-                    class="text-red-500 py-1"
+                    class="dark:text-red-500 text-red-600 py-1"
                 >
                     Remove
                 </button>

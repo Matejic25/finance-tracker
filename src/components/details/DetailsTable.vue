@@ -8,11 +8,11 @@ const props = defineProps({
 </script>
 
 <template>
-    <table class="bg-gray-800 w-full md:w-3/5 mx-auto">
+    <table class="dark:bg-gray-800 bg-gray-200 w-full md:w-3/5 mx-auto">
         <tbody>
             <tr
                 v-for="(data, type) in props.transaction"
-                class="even:bg-gray-900"
+                class="dark:even:bg-gray-900 even:bg-gray-300"
                 :key="type"
             >
                 <th class="md:py-10 md:px-16 py-5 px-4 text-lg text-left">

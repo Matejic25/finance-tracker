@@ -36,13 +36,17 @@ watch(
 
 <template>
     <form
-        class="flex flex-col w-full h-full mt-8 bg-gray-800 px-4 p-6 lg:max-h-full overflow-y-scroll lg:overflow-y-visible"
+        class="flex flex-col w-full h-full mt-8 dark:bg-gray-800 bg-gray-200 px-4 p-6 lg:max-h-full overflow-y-scroll lg:overflow-y-visible"
     >
         <div
             class="lg:grid lg:grid-cols-2 lg:grid-rows-5 h-full lg:gap-2 flex-flex-col"
         >
             <div class="col-span-2 flex flex-col w-full max-h-min">
-                <label for="title" class="text-gray-300 mb-1 mt-3">Title</label>
+                <label
+                    for="title"
+                    class="dark:text-gray-300 text-gray-800 mb-1 mt-3"
+                    >Title</label
+                >
                 <input
                     v-model="form.title"
                     type="text"
@@ -52,7 +56,11 @@ watch(
                 <p v-if="errors.title">{{ errors.title }}</p>
             </div>
             <div class="flex flex-col max-h-min">
-                <label for="type" class="text-gray-300 mb-1 mt-3">Type</label>
+                <label
+                    for="type"
+                    class="dark:text-gray-300 text-gray-800 mb-1 mt-3"
+                    >Type</label
+                >
                 <select v-model="form.type" id="type" class="text-black">
                     <option disabled value="">Select Type</option>
                     <option>Income</option>
@@ -61,7 +69,9 @@ watch(
                 <p v-if="errors.type">{{ errors.type }}</p>
             </div>
             <div class="flex flex-col max-h-min">
-                <label for="category" class="text-gray-300 mb-1 mt-3"
+                <label
+                    for="category"
+                    class="dark:text-gray-300 text-gray-800 mb-1 mt-3"
                     >Category (Select Type First)</label
                 >
                 <select
@@ -81,7 +91,9 @@ watch(
                 <p v-if="errors.category">{{ errors.category }}</p>
             </div>
             <div class="col-span flex flex-col max-h-min">
-                <label for="amount" class="text-gray-300 mb-1 mt-3"
+                <label
+                    for="amount"
+                    class="dark:text-gray-300 text-gray-800 mb-1 mt-3"
                     >Amount</label
                 >
                 <input
@@ -93,7 +105,11 @@ watch(
                 <p v-if="errors.amount">{{ errors.amount }}</p>
             </div>
             <div class="col-span flex flex-col max-h-min">
-                <label for="date" class="text-gray-300 mb-1 mt-3">Date</label>
+                <label
+                    for="date"
+                    class="dark:text-gray-300 text-gray-800 mb-1 mt-3"
+                    >Date</label
+                >
                 <input
                     v-model="form.date"
                     type="date"
@@ -103,7 +119,11 @@ watch(
                 <p v-if="errors.date">{{ errors.date }}</p>
             </div>
             <div class="col-span-2 flex flex-col max-h-min">
-                <label for="notes" class="text-gray-300 mb-1 mt-3">Notes</label>
+                <label
+                    for="notes"
+                    class="dark:text-gray-300 text-gray-800 mb-1 mt-3"
+                    >Notes</label
+                >
                 <input
                     v-model="form.notes"
                     type="text"
@@ -113,7 +133,7 @@ watch(
             </div>
             <button
                 @click.prevent="handleSubmit"
-                class="bg-amber-600 mt-8 p-2 font-bold col-span-2 w-full lg:mb-0 mb-8 self-center h-12"
+                class="dark:bg-amber-600 bg-amber-500 mt-8 p-2 font-bold col-span-2 w-full lg:mb-0 mb-8 self-center h-12"
             >
                 Add Transaction
             </button>
